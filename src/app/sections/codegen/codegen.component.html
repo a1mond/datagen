@@ -1,0 +1,18 @@
+<div class="container col-lg-7 mt-5">
+  <div class="row">
+    <h1 class="mb-3">Paste your code down</h1>
+    <div class="form-group">
+      <div #mainTextArea class="form-control" contenteditable="true"></div>
+      <div class="d-flex mt-2 mb-2">
+        <button class="btn btn-success me-1" [disabled]="disable" (click)="onGenerate()">Generate</button>
+        <button class="btn btn-primary me-1" (click)="onAreaChange(); isValid();">Define</button>
+        <button class="btn btn-warning me-1" (click)="onClearClick(); onAreaChange();">Clear</button>
+        <input placeholder="Retries" type="number" class="form-control ms-auto w-25">
+      </div>
+    </div>
+    <hr class="my-3">
+    <div class="container" *ngFor="let variable of variables">
+      <app-variable [variable]="variable"></app-variable>
+    </div>
+  </div>
+</div>
