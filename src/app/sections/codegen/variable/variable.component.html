@@ -1,0 +1,22 @@
+<div class="row d-flex flex-row">
+  <div class="input-group w-auto flex-grow-1">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <div #varName class="form-control overflow-auto"></div>
+    <select name="type-select" class="form-select" [(ngModel)]="selectedType" (change)="onSelectChange()">
+      <option [value]="type" *ngFor="let type of types">{{ type | titlecase }}</option>
+    </select>
+  </div>
+  <a (click)="onDropdownClick()" class="nav-link dropdown-toggle w-auto text-end" id="navbarDarkDropdownMenuLink"
+     role="button">
+    Options
+  </a>
+  <div class="container">
+    <div class="form-control mt-2" [hidden]="hideOptions">
+      <div class="chuj">Something</div>
+      <hr>
+      <div class="chuj">Something</div>
+    </div>
+  </div>
+  <hr class="mt-3">
+</div>
+
