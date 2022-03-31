@@ -25,4 +25,4 @@ docker-compose up
 ## What it actually does
 Currently, the `codegen` functionality is implemented, which takes any string of code *(or not)*, defines variables in it, by some patterns, and generates valid data for those placeholders. How it looks in action:
 
-![App screenshot](https://ibb.co/9YSYKJF)
+![App screenshot](https://i.ibb.co/BsFsWmX/Screenshot-2022-04-01-at-00-27-16.png)
