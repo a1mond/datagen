@@ -9,3 +9,4 @@ export interface IVariable {
 export interface IVariableOption {
   [p: string]: any
 }
+

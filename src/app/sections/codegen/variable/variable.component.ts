@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core';
-import {IVariable} from "../../../models/variable.model";
+import { AfterViewInit, Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
+import { IVariable } from "../../../models/variable.model";
 
 @Component({
   selector: 'app-variable',
@@ -9,21 +9,15 @@ import {IVariable} from "../../../models/variable.model";
 export class VariableComponent implements AfterViewInit {
 
   @Input() variable: IVariable
+  @Input() types: string[]
   @ViewChild('varName') varNameInput: ElementRef
   hideOptions: boolean = true;
-  selectedType: string = 'random';
-
-  types: string[] = [
-    'random',
-    'name',
-    'uuid',
-    'age'
-  ]
+  selectedType: string = 'name';
 
   constructor(private rd: Renderer2) { }
 
   ngOnInit(): void {
-
+    this.variable.type = this.selectedType;
   }
 
   ngAfterViewInit(): void {
@@ -31,7 +25,8 @@ export class VariableComponent implements AfterViewInit {
   }
 
   onDropdownClick() {
-    this.hideOptions = !this.hideOptions;
+    // this.hideOptions = !this.hideOptions;
+    // disabled for now
   }
 
   onSelectChange() {

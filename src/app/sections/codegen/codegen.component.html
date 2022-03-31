@@ -4,15 +4,40 @@
     <div class="form-group">
       <div #mainTextArea class="form-control" contenteditable="true"></div>
       <div class="d-flex mt-2 mb-2">
-        <button class="btn btn-success me-1" [disabled]="disable" (click)="onGenerate()">Generate</button>
-        <button class="btn btn-primary me-1" (click)="onAreaChange(); isValid();">Define</button>
-        <button class="btn btn-warning me-1" (click)="onClearClick(); onAreaChange();">Clear</button>
-        <input placeholder="Retries" type="number" class="form-control ms-auto w-25">
+        <div class="me-auto">
+          <button
+            #genButton
+            class="btn btn-success me-1"
+            [disabled]="disable"
+            (click)="onGenerate()"
+            data-bs-toggle="tooltip"
+            data-bs-placement="left"
+            title="">
+            Generate
+          </button>
+          <button
+            #defButton
+            class="btn btn-primary me-1"
+            (click)="onAreaChange();">
+            Define
+          </button>
+          <button
+            class="btn btn-warning me-1"
+            (click)="onClearClick(); onAreaChange();">
+            Clear
+          </button>
+        </div>
+        <input #tries (change)="isValid()" placeholder="Times" type="number" class="form-control m w-auto">
       </div>
     </div>
     <hr class="my-3">
-    <div class="container" *ngFor="let variable of variables">
-      <app-variable [variable]="variable"></app-variable>
+    <div *ngIf="isLoaded">
+      <div class="container" *ngFor="let variable of variables">
+        <app-variable [types]="varTypes" [variable]="variable"></app-variable>
+      </div>
     </div>
+    <textarea #genTextArea placeholder="Generated data..." class="form-control" style="overflow: scroll" readonly
+              [(ngModel)]="generated"></textarea>
+    <button [ngxClipboard]="genTextArea" class="btn btn-outline-secondary">Copy to clipboard</button>
   </div>
 </div>
