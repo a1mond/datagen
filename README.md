@@ -23,6 +23,9 @@ docker-compose up
 ```
 
 ## What it actually does
-Currently, the `codegen` functionality is implemented, which takes any string of code *(or not)*, defines variables in it, by some patterns, and generates valid data for those placeholders. How it looks in action:
+The `codegen` part is generating data, based on the pattern the user has defined. The pattern could be a JSON object, an SQL query, or any other string. As the pattern is defined, place the dynamic variables into the pattern created. Those variables will be replaced with an actual data later, and repeated as many times as you would love :)
 
 ![App screenshot](https://i.ibb.co/BsFsWmX/Screenshot-2022-04-01-at-00-27-16.png)
+
+## Plans
+In the future plan, there is an idea to implement a full-featured automatic SQL generation tool, which, based on the database schema, will generate data accordingly. 
